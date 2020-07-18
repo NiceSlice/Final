@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+    
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+
+        <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet"> 
+
+        <link href="styles.css" rel="stylesheet">
+        <title>Final</title>
+
+    </head>
+
+
+    <body>
+
+        <div class="content">
+
+            <h1 class="title">Enter coordinates</h1>
+
+            <form id="form-coords">
+                    
+                <div>
+
+                    <label for="lat">Latitude:</label><br>
+                    <input id="lat" name="lat" class="input" type="text" placeholder="ex. 51.5074">
+                    
+                    <select name="latDir">
+                        <option value="N">North</option>
+                        <option value="S">South</option>
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label for="lon">Longitude:</label><br>
+                    <input id="lon" name="lon" class="input" type="text" placeholder="ex. 0.1278">
+                    
+                    <select name="lonDir">
+                        <option value="W">West</option>
+                        <option value="E">East</option>
+                    </select>
+
+                </div>
+                
+                <input class="submit" type="submit" value="Submit">
+
+            </form>
+
+            <script>
+
+                let form = document.getElementById("form-coords");
+
+                form.onsubmit = function(e)
+                {
+                    e.preventDefault();
+
+                    // Get latitude and longitude values
+                    let lat = form.lat.value;
+                    let lon = form.lon.value;
+
+
+                    // Check if lat and lon are numbers
+                    if (isNaN(lat) || isNaN(lon) || lat == "" || lon == "")
+                    {
+                        alert("Invalid submit");
+                        return;
+                    }
+
+                    lat = parseFloat(lat);
+                    lon = parseFloat(lon);
+
+                    // Check if lat and lon fall within their ranges
+                    if (lat < 0 || lat > 90 || lon < 0 || lon > 180)
+                    {
+                        alert("Invalid submit");
+                        return;
+                    }
+
+
+                    // If latitude is south or longitude is east, convert to negative
+                    if(form.latDir.value == "S")
+                    {
+                        lat -= 2 * lat
+                    }
+                    if(form.lonDir.value == "E")
+                    {
+                        lon -= 2 * lon
+                    }
+                    
+                    
+                    let url = window.location.href;
+                    url = url.slice(0, url.length - 10)  + "widget.html" + "?lat=" + lat + "&lon=" + lon;
+
+                    window.open(url, "_self");
+                }
+
+            </script>
+        
+        </div>
+
+    </body>
+    
+</html>

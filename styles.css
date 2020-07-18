@@ -1,0 +1,53 @@
+html
+{
+    font-family: 'Mulish', sans-serif;
+    height: 100%;
+}
+
+body
+{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    min-height: 100%;
+    margin: 0;
+}
+
+.content
+{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(170, 170, 170);
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: #dfe1e6;
+}
+
+.title
+{
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+#form-coords
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.input
+{
+    width: 20rem;
+    margin: 0.5rem 0;  
+}
+
+select
+{
+    width: 4rem;
+}
+
+.submit
+{
+    width: 5rem;
+    margin-top: 1rem;
+}
