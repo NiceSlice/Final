@@ -94,11 +94,10 @@
                     
                     
                     let url = window.location.href;
-                    console.log(url);
-                    url = url.slice(0, url.length - 10)  + "widget.html" + "?lat=" + lat + "&lon=" + lon;
+                    url = url  + "widget.html" + "?lat=" + lat + "&lon=" + lon;
                     console.log(url);
 
-                    //window.open(url, "_self");
+                    window.open(url, "_self");
                 }
 
             </script>
